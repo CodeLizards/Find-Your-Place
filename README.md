@@ -33,7 +33,6 @@ I chose to delve more into javascript for this application so I wanted to have a
 
 ## Views Architecture
 ![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/aSb0AEa.png](http://i.imgur.com/aSb0AEa.png)
-[Architecture](http://i.imgur.com/aSb0AEa.png)http://i.imgur.com/aSb0AEa.png
 
 ## Further Features for better UX
 
