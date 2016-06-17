@@ -32,8 +32,8 @@ I chose the google maps javascript API because of the specifications of the proj
 I chose to delve more into javascript for this application so I wanted to have a quick and easy grid layout which I got from bootstrap. 
 
 ## Views Architecture
-
-[Architecture](http://i.imgur.com/aSb0AEa.png)
+![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/aSb0AEa.png](http://i.imgur.com/aSb0AEa.png)
+[Architecture](http://i.imgur.com/aSb0AEa.png)http://i.imgur.com/aSb0AEa.png
 
 ## Further Features for better UX
 
