@@ -2,7 +2,8 @@
 
 A simple app to search the google places library and display results with markers and infowindows!
 ## Usage
-## Deployed Link: https://codelizards.github.io/Find-Your-Place/client/
+## Deployed Link: 
+https://codelizards.github.io/Find-Your-Place/client/
 
 ### Run Locally
 
