@@ -9,7 +9,12 @@ class MapContainer extends Component {
     };
     return (
       <div className="container col-md-12" style={style}>
-        <Map google={this.props.google} query={this.props.query} displayPlaces={ this.props.displayPlaces } />
+        <Map
+          google={this.props.google}
+          query={this.props.query}
+          displayPlaces={this.props.displayPlaces}
+          placesStatus={this.props.placesStatus}
+        />
       </div>
     );
   }
@@ -18,6 +23,8 @@ class MapContainer extends Component {
 MapContainer.propTypes = {
   google: PropTypes.object,
   query: PropTypes.isRequired,
+  displayPlaces: PropTypes.function,
+  placesStatus: PropTypes.function,
 };
 
 export default MapContainer;

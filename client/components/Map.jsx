@@ -115,32 +115,35 @@ class Map extends Component {
     const center = new this.props.google.maps.LatLng(this.state.lat, this.state.lng);
     const request = {
       location: center,
-      radius: '1000',
+      radius: '10',
       query: this.props.query.toString(),
     };
 
     const service = new this.props.google.maps.places.PlacesService(this.map);
     service.textSearch(request, (results, status) => {
       if (status === this.props.google.maps.places.PlacesServiceStatus.OK) {
-        // remove markers from old result before placing new ones 
+        // remove markers from old result before placing new ones to avoid reloading map;
         this.removeMarkers();
-        if(results.lenth === 0) {
-          alert("We could not find any places matching your search! My bad. Perhaps try something more general. Like sushi...mmm sushi.");
-        }
-
+        // create markers
         for (let i = 0; i < results.length; i++) {
           this.props.displayPlaces(results);
           const place = results[i];
           this.createMarker(place);
         }
+        // let other components know that places have been loaded
+      } else {
+        const errorMessage =
+        'We could not find any places matching your search! My bad. Perhaps try something more general. Like sushi...mmm sushi.';
+        alert(errorMessage);
       }
+      this.props.placesStatus(true);
     });
   }
 
   render() {
     return (
       <div ref="map" id="map" className="col-md-12">
-        Loading map...
+        Loading map! Hang Tight...
       </div>
     );
   }
@@ -150,6 +153,7 @@ Map.propTypes = {
   google: PropTypes.object,
   query: PropTypes.string,
   displayPlaces: PropTypes.function,
+  placesStatus: PropTypes.function,
 };
 
 export default Map;

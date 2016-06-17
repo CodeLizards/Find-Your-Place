@@ -1,12 +1,45 @@
 #map {
   height: 720px;
-  width: 1500px;
+  width: 1000px;
+  border: solid 1.5px black;
+}
+
+.title {
+  display: inline-block;
+}
+
+.search-box {
+  display: inline-block;
+  padding: 30px;
 }
 
 .container {
   height: 720px;
   width: 1000px;
 }
+
+.app {
+  padding: 10px;
+}
+
+.input-field {
+  border: 1.5px solid black;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 5px;
+  border: 1.5px solid black;
+  font-size: larger;
+  background: white;
+  margin-left: 10px
+}
+
+.is-loading {
+  display: inline-block;
+}
+
 
 /*@media (max-width: 600px) {
   #maps {

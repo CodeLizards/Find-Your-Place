@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBox from './components/searchBox.jsx';
+import SearchBox from './components/SearchBox.jsx';
 import MapContainer from './components/MapContainer.jsx';
 
 class App extends Component {
@@ -9,12 +9,28 @@ class App extends Component {
     this.state = {
       query: 'restaurants',
       places: [],
+      searchingPlace: false,
     };
+  }
+
+  placesStatus(bool) {
+    this.setState({ searchingPlace: false });
   }
 
   searchPlaces(event, input) {
     event.preventDefault();
     this.setState({ query: input.value });
+    this.setState({ searchingPlace: true });
+  }
+
+  isLoading() {
+    if (this.state.searchingPlace === true) {
+      return (
+        <div className="is-loading">
+         <span> Loading All Of the Things...</span>
+        </div>
+      );
+    }
   }
 
   displayPlaces(places) {
@@ -23,10 +39,20 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Search a place!</h1>
-        <SearchBox searchPlaces={this.searchPlaces.bind(this)} />
-        <MapContainer google={ this.props.google } query={ this.state.query} displayPlaces={ this.displayPlaces.bind(this) } />
+      <div className="col-md-12 app">
+        <h1 className="title">Oh, the places you'll go...</h1>
+        <SearchBox
+          searchPlaces={this.searchPlaces.bind(this)}
+          placesLoaded={this.state.placesLoaded}
+          placesStatus={this.placesStatus.bind(this)}
+        />
+        {this.isLoading()}
+        <MapContainer
+          google={this.props.google}
+          query={this.state.query}
+          displayPlaces={this.displayPlaces.bind(this)}
+          placesStatus={this.placesStatus.bind(this)}
+        />
       </div>
     );
   }
