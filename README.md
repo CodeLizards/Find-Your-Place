@@ -29,7 +29,7 @@ I chose React because building an simple clientside app that consists mostly of 
 I chose the google maps javascript API because of the specifications of the project and because I wanted to show a map and have all the additional build in functions that come with the places library such as maps and autocomplete
 
 ### Bootstrap
-I chose to delve more into javascript for this application so I wanted to have a quick and easy grid layout which I got from bootstrap. 
+I chose to delve more into javascript for this application so I wanted to have a quick and easy grid layout and automatic media queries with resizing. 
 
 ## Views Architecture
 ![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/aSb0AEa.png](http://i.imgur.com/aSb0AEa.png)

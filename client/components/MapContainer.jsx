@@ -8,7 +8,7 @@ class MapContainer extends Component {
       height: '720px',
     };
     return (
-      <div className="container col-md-12" style={style}>
+      <div className="container-fluid col-md-12" style={style}>
         <Map
           google={this.props.google}
           query={this.props.query}

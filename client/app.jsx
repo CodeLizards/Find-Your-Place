@@ -13,7 +13,8 @@ class App extends Component {
     };
   }
 
-  placesStatus(bool) {
+  placesStatus() {
+    console.log('ehere');
     this.setState({ searchingPlace: false });
   }
 
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="col-md-12 app">
+      <div className="container-fluid col-md-12 app">
         <h1 className="title">Oh, the places you'll go...</h1>
         <SearchBox
           searchPlaces={this.searchPlaces.bind(this)}

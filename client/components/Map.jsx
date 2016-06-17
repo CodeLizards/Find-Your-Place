@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import SearchBox from './searchBox.jsx';
-
 
 class Map extends Component {
 
@@ -136,7 +134,7 @@ class Map extends Component {
         'We could not find any places matching your search! My bad. Perhaps try something more general. Like sushi...mmm sushi.';
         alert(errorMessage);
       }
-      this.props.placesStatus(true);
+      this.props.placesStatus();
     });
   }
 
