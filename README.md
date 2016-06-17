@@ -2,6 +2,8 @@
 
 A simple app to search the google places library and display results with markers and infowindows!
 ## Usage
+## Deployed Link: https://codelizards.github.io/Find-Your-Place/client/
+
 ### Run Locally
 
 `npm install`
@@ -30,6 +32,9 @@ I chose the google maps javascript API because of the specifications of the proj
 
 ### Bootstrap
 I chose to delve more into javascript for this application so I wanted to have a quick and easy grid layout and automatic media queries with resizing. 
+
+## Deployment
+Deployed on github for quick setup
 
 ## Views Architecture
 ![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/aSb0AEa.png](http://i.imgur.com/aSb0AEa.png)
