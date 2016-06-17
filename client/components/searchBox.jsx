@@ -7,7 +7,6 @@ class SearchBox extends Component {
     e.preventDefault();
     this.props.searchPlaces(e, this.refs.newPlace);
     this.refs.newPlace.value = '';
-    console.log('start loading...');
   }
 
   render() {

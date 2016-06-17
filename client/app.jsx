@@ -43,8 +43,6 @@ class App extends Component {
         <h1 className="title">Oh, the places you'll go...</h1>
         <SearchBox
           searchPlaces={this.searchPlaces.bind(this)}
-          placesLoaded={this.state.placesLoaded}
-          placesStatus={this.placesStatus.bind(this)}
         />
         {this.isLoading()}
         <MapContainer

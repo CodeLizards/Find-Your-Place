@@ -102,7 +102,7 @@ class Map extends Component {
       const center = new google.maps.LatLng(this.state.lat, this.state.lng);
       const mapConfig = {
         center,
-        zoom: 14,
+        zoom: 12,
         scrollwheel: true,
       };
       this.map = new google.maps.Map(node, mapConfig);
@@ -115,7 +115,7 @@ class Map extends Component {
     const center = new this.props.google.maps.LatLng(this.state.lat, this.state.lng);
     const request = {
       location: center,
-      radius: '10',
+      radius: '5',
       query: this.props.query.toString(),
     };
 
