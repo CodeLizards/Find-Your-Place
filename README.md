@@ -1,22 +1,26 @@
 # Oh, the places you'll go! 
 
 A simple app to search the google places library and display results!
-
-## Run Locally
+## Usage
+### Run Locally
 
 `npm install`
 
-## Serve your files on a webpack server (with hotloading!)
+### Serve your files on a webpack server 
 
 `npm start`
 
 Then go to localhost:8080.
 
-## Process and bundle your files
+### For Development to hotload file changes
 
 `webpack`
 
-## Re-process and re-bundle your files whenever you make a change
-
 `webpack --watch`
+
+## Tech Stack and Justifications
+
+## Views Architecture
+
+## Further Features for better UX
 

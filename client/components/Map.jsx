@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import SearchBox from './searchBox.jsx';
+
 
 class Map extends Component {
 
@@ -26,16 +28,18 @@ class Map extends Component {
       this.findPlaces();
     }
   }
-
+  // get the user location to load map on the correct lng/lat
   getUserLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
+        // callbacks for async nature of setState
         this.setState({ lat: position.coords.latitude }, () => {
           this.setState({ lng: position.coords.longitude }, () => {
             this.loadMap();
           });
         });
       }, () => (
+        // error handling
         alert("Hi! We've got some issues locating you! I'm so sorry for the inconvenience! While we try and fix the craziness, you might try another browser or enable locaiton services")
       ));
     }
@@ -45,7 +49,7 @@ class Map extends Component {
     if (!!this.state.openInfoWindow) {
       this.state.openInfoWindow.close();
     }
-
+    // info for infowindow, takes a string
     const content =
     `<h2 id="firstHeading" class="firstHeading">${place.name}</h2>
       <div id="bodyContent">
@@ -58,6 +62,8 @@ class Map extends Component {
     });
 
     infoWindow.open(this.state.map, marker);
+    // set state so that we can close currently opened window
+    // when another is opened
     this.setState({ openInfoWindow: infoWindow });
   }
 
@@ -67,15 +73,17 @@ class Map extends Component {
       position: place.geometry.location,
     });
     // add onclick listner to marker for infoWindow
-    this.props.google.maps.event.addListener(marker, 'click', () => this.showInfoWindow(place, marker));
-
-
+    this.props.google.maps.event.addListener(
+      marker, 'click', () => this.showInfoWindow(place, marker)
+    );
     // add to array of markers displayed on page.
     const markers = this.state.markers.slice();
     markers.push(marker);
     this.setState({ markers });
   }
 
+  // function to remove markers before places new markers
+  // to avoid reloading entire map each time
   removeMarkers() {
     const markers = this.state.markers;
     for (let i = 0; i < markers.length; i++) {
@@ -85,6 +93,7 @@ class Map extends Component {
   }
 
 
+  // display map on specifies lng/lat
   loadMap() {
     if (this.props && this.props.google) {
       const { google } = this.props;
@@ -101,6 +110,7 @@ class Map extends Component {
     }
   }
 
+  // call google places library to search for places in current map area
   findPlaces() {
     const center = new this.props.google.maps.LatLng(this.state.lat, this.state.lng);
     const request = {
@@ -112,7 +122,12 @@ class Map extends Component {
     const service = new this.props.google.maps.places.PlacesService(this.map);
     service.textSearch(request, (results, status) => {
       if (status === this.props.google.maps.places.PlacesServiceStatus.OK) {
+        // remove markers from old result before placing new ones 
         this.removeMarkers();
+        if(results.lenth === 0) {
+          alert("We could not find any places matching your search! My bad. Perhaps try something more general. Like sushi...mmm sushi.");
+        }
+
         for (let i = 0; i < results.length; i++) {
           this.props.displayPlaces(results);
           const place = results[i];
@@ -124,7 +139,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div ref="map" id="map">
+      <div ref="map" id="map" className="col-md-12">
         Loading map...
       </div>
     );
@@ -134,6 +149,7 @@ class Map extends Component {
 Map.propTypes = {
   google: PropTypes.object,
   query: PropTypes.string,
+  displayPlaces: PropTypes.function,
 };
 
 export default Map;

@@ -1,0 +1,21 @@
+#map {
+  height: 720px;
+  width: 1500px;
+}
+
+.container {
+  height: 720px;
+  width: 1000px;
+}
+
+/*@media (max-width: 600px) {
+  #maps {
+    width: 600px;
+  }
+}
+
+@media (max-width: 400px) {
+  #maps {
+    width: 400px;
+  }
+}*/

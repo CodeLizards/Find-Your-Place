@@ -5,17 +5,15 @@ class MapContainer extends Component {
 
   render() {
     const style = {
-      width: '100vw',
-      height: '75vh',
+      height: '720px',
     };
     return (
-      <div style={style}>
+      <div className="container col-md-12" style={style}>
         <Map google={this.props.google} query={this.props.query} displayPlaces={ this.props.displayPlaces } />
       </div>
     );
   }
 }
-
 
 MapContainer.propTypes = {
   google: PropTypes.object,
