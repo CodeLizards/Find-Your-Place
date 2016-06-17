@@ -1,6 +1,6 @@
 # Oh, the places you'll go! 
 
-A simple app to search the google places library and display results!
+A simple app to search the google places library and display results with markers and infowindows!
 ## Usage
 ### Run Locally
 
